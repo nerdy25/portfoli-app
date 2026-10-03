@@ -4,16 +4,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: uptime
-        run: uptime
-      - name: number of processors
-        run: nproc
+      - name: checkout code
+        uses: actions/checkout@v4
+        run: docker build -t nerdy25/portfoli app .
+      - name: list images
+        run: docker images
+        
 
 
-  test: 
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-        - name: hello world
-          run: echo " Hello World"
           
